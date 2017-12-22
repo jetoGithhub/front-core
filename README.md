@@ -1,22 +1,26 @@
 Bcp Core
 =========
 
-#Dependencias
+Dependencias
+------------
+
 * NodeJs
 * NPM
 
-#Como Instalar
+Como Instalar
+-------------
 
 ````bash
-
 	npm install git+URL_REPOSITORIO
 ````
 
-#Lista de Componentes
+Lista de Componentes
+--------------------
 
-1. Storage
+	1. Storage
 
-#CopyRight
+CopyRight
+---------
 
 BCP-NHBK
 

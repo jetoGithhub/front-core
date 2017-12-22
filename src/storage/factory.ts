@@ -5,14 +5,16 @@ import { SessionStorage } from "./storages/session";
 import { MemoryStorage } from "./storages/memory";
 
 export function StorageFactory( type: string ): BaseStorage< string, string > | undefined {
-    let storage;
+    let browserStorage, storage;
     switch ( type ) {
         case 'local':
-            storage = new BrowserStorageBuilder( storage ).getStorage();
-            return storage;
+            storage = new LocalStorage();
+            browserStorage = new BrowserStorageBuilder( storage ).getStorage();
+            return browserStorage;
         case 'session':
-            storage = new BrowserStorageBuilder( storage ).getStorage();
-            return storage;
+            storage = new SessionStorage();
+            browserStorage = new BrowserStorageBuilder( storage ).getStorage();
+            return browserStorage;
         case 'memory':
             storage = new MemoryStorage();
             return storage;

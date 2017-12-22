@@ -33,12 +33,15 @@ class MyFirstClass {
 ````
 
 Interfaces
+----------
 
 | Nombre | Descripcion | 
 |--------|-------------|
 |BaseStorage| -------- |
 
 Metodos
+-------
+
 | Nombre | Descripcion | 
 |--------|-------------|
 | GET | -------- |

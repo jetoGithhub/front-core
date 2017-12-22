@@ -7,7 +7,7 @@ Como Usar
 
 ````javascript
 
-ìmport { 
+import { 
 	BaseStorage, 
 	storage 
 } from "@bcp/core"

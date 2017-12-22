@@ -12,7 +12,7 @@ export class BrowserStorageBuilder {
             this.windowStorage.get('1');
             this.windowStorage.clear();
 
-            return new this.windowStorage();
+            return this.windowStorage;
         } catch( e ) {
 
             return new MemoryStorage();

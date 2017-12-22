@@ -17,7 +17,7 @@ Como Instalar
 Lista de Componentes
 --------------------
 
-	1. Storage
+	1. [Storage](src/storage/README.md)
 
 CopyRight
 ---------

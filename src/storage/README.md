@@ -20,6 +20,7 @@ class MyFirstClass {
 		this.localStorage: BaseStorage = storage('local');
 	}
 
+
 	myFirstMethod(){
 		var data = {'hello': 'world'};
 		.....

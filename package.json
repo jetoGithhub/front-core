@@ -1,5 +1,6 @@
 {
-  "name": "bcp-core",
+  "name": "@bcp/core",
+  "descriptions": "bcp - core",
   "version": "0.0.0",
   "keywords": [
     "core",

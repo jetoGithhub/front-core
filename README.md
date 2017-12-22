@@ -11,7 +11,7 @@ Como Instalar
 -------------
 
 ````bash
-	npm install git+URL_REPOSITORIO
+	npm install --save-dev git+URL_REPOSITORIO
 ````
 
 Lista de Componentes

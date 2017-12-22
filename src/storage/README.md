@@ -1,6 +1,6 @@
 STORAGE
 =======
-[alt text](./StorageModel.png "Modelo")
+[logo](./StorageModel.png "Modelo")
 
 Como Usar
 ---------

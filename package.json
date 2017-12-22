@@ -8,9 +8,10 @@
     "package"
   ],
   "license": "GPL-2.0",
-  "main":"src/main.ts",
+  "main":"build/bcp-core.bundle.js",
   "scripts": {
     "test": "karma start",
+    "build": "webpack --config webpack.config.js",
     "lint": "tslint -- src/**/*.ts -t verbose",
     "doc": "typedoc --hideGenerator --module commonjs --out doc/ --target es6 --theme minimal src/"
   },
@@ -35,10 +36,12 @@
     "mocha": "^3.5.0",
     "protractor": "~5.1.2",
     "sinon": "^3.2.0",
+    "ts-loader": "^3.2.0",
     "ts-node": "~3.2.0",
     "tslint": "^5.7.0",
     "tslint-config-standard": "^6.0.1",
     "typedoc": "^0.8.0",
-    "typescript": "^2.4.2"
+    "typescript": "~2.3.3",
+    "webpack": "^3.10.0"
   }
 }

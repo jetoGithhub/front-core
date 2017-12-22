@@ -1,6 +1,6 @@
 STORAGE
 =======
-[logo](./StorageModel.png "Modelo")
+[logo](StorageModel.png "Modelo")
 
 Como Usar
 ---------

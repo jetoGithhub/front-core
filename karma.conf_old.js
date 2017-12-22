@@ -1,39 +1,29 @@
-// Karma configuration
-// Generated on Wed Dec 13 2017 15:10:41 GMT-0500 (Hora est. Pacífico, Sudamérica)
+// Karma configuration file, see link for more information
+// https://karma-runner.github.io/1.0/config/configuration-file.html
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', 'karma-typescript'],
-     plugins: [
+    plugins: [
       require('karma-jasmine'),
       require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-typescript'),
       require('karma-coverage-istanbul-reporter')
     ],
-    exclude: [],
-    files: [
-        'src/spec.ts',
-        { pattern: "src/*.ts" }, // *.tsx for React Jsx
-    ],
-    preprocessors: {
-        "**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
-    },
-     client:{
+    client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'karma-typescript'],
+    reporters: ['progress', 'kjhtml', '"karma-typescript"'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['PhantomJS'],
-    singleRun: false,
-    concurrency: Infinity
-  })
-}
+    singleRun: false
+  });
+};

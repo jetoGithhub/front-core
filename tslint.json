@@ -2,6 +2,12 @@
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
+  "extends": "tslint-config-standard",
+  "linterOptions": {
+    "exclude": [
+        "src/**/*.spec.ts"
+      ]
+  },
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -9,6 +15,10 @@
     "comment-format": [
       true,
       "check-space"
+    ],
+    "ter-indent": [
+        true,
+        4
     ],
     "curly": true,
     "eofline": true,

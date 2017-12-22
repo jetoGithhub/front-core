@@ -1,6 +1,6 @@
 STORAGE
 =======
-![logo]: (StorageModel.png)
+![logo](StorageModel.png)
 
 Como Usar
 ---------

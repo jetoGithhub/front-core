@@ -1,5 +1,5 @@
-import { BaseBrowserStorage } from "../index";
+import { BaseBrowserStorage } from '../index';
 
 export class SessionStorage extends BaseBrowserStorage {
-    windowStorage:Storage = window.sessionStorage;
+    windowStorage: Storage = window.sessionStorage;
 }

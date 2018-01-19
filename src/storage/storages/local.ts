@@ -1,5 +1,5 @@
-import { BaseBrowserStorage } from "../index";
+import { BaseBrowserStorage } from '../index';
 
 export class LocalStorage extends BaseBrowserStorage {
-    windowStorage:Storage = window.localStorage;
+    windowStorage: Storage = window.localStorage;
 }

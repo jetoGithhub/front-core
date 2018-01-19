@@ -17,8 +17,11 @@
       "check-space"
     ],
     "ter-indent": [
-        true,
-        4
+      true,
+      4,
+      {
+        "SwitchCase": 1
+      }
     ],
     "curly": true,
     "eofline": true,
@@ -145,6 +148,7 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "invoke-injectable": true
+    "invoke-injectable": true,
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always"}]
   }
 }

@@ -14,26 +14,43 @@ module.exports = function(config) {
     ],
     exclude: [],
     files: [
-        'src/spec.ts',
-        { pattern: "src/*.ts" }, // *.tsx for React Jsx
+        'src/**/*.spec.ts',
+        { pattern: "src/**/*.ts" }, // *.tsx for React Jsx
     ],
     preprocessors: {
-        "**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
+        "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
     },
-     client:{
+    client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true
+      reports: [ 'html', 'text' ],
+      fixWebpackSourcePaths: true,
+       thresholds: {
+        emitWarning: true,
+        skipFilesWithNoCoverage: true,
+        global: {
+          statements: 60,
+          lines: 60,
+          branches: 100,
+          functions: 100
+        },
+        each: {
+          statements: 60,
+          lines: 60,
+          branches: 100,
+          functions: 100,
+          overrides: {}
+        }
+      }
     },
-    reporters: ['progress', 'karma-typescript'],
+    reporters: ['progress', 'karma-typescript', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['PhantomJS'],
-    singleRun: false,
+    singleRun: true,
     concurrency: Infinity
   })
 }

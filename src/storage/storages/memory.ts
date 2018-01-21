@@ -1,5 +1,5 @@
 import { BaseMemoryStorage } from '../index';
 
 export class MemoryStorage extends BaseMemoryStorage {
-    memoryStorage = {};
+    memoryStorage = new Map<string, string>();
 }

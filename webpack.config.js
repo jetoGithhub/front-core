@@ -15,7 +15,8 @@ module.exports = {
     loaders: [
      	{ 
      		test: /\.ts$/, 
-     		loader: 'ts-loader'
+     		loader: 'ts-loader',
+        exclude: [/\.(spec)\.ts$/]
     	}
     ]
   }

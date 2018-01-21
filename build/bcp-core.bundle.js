@@ -92,9 +92,9 @@ exports.BaseBrowserStorage = BaseBrowserStorage;
 var BaseMemoryStorage = (function () {
     function BaseMemoryStorage() {
     }
-    BaseMemoryStorage.prototype.get = function (key) { return this.memoryStorage.get(key); };
-    BaseMemoryStorage.prototype.set = function (key, value) { return this.memoryStorage.set(key, value); };
-    BaseMemoryStorage.prototype.clear = function () { return this.memoryStorage.clear(); };
+    BaseMemoryStorage.prototype.get = function (key) { return this.memoryStorage[key]; };
+    BaseMemoryStorage.prototype.set = function (key, value) { return this.memoryStorage[key] = value; };
+    BaseMemoryStorage.prototype.clear = function () { return this.memoryStorage = {}; };
     return BaseMemoryStorage;
 }());
 exports.BaseMemoryStorage = BaseMemoryStorage;
@@ -122,7 +122,7 @@ var MemoryStorage = (function (_super) {
     __extends(MemoryStorage, _super);
     function MemoryStorage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.memoryStorage = new Map();
+        _this.memoryStorage = {};
         return _this;
     }
     return MemoryStorage;

@@ -1,10 +1,11 @@
 {
-  "name": "@bcp/core",
-  "descriptions": "bcp - core",
+  "name": "@roraima/core",
+  "descriptions": "roraima - core",
   "version": "0.0.0",
   "keywords": [
     "core",
-    "bcp",
+    "everis",
+    "frontEnd",
     "package"
   ],
   "license": "GPL-2.0",

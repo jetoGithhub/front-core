@@ -1,5 +1,5 @@
 import  { StorageFactory as storage } from './factory';
-import  { BaseBrowserStorage, BaseStorage, BaseMemoryStorage } from '../storage/index';
+import  { BaseBrowserStorage, BaseMemoryStorage } from '../storage/index';
 
 var sessionStorage;
 var _localStorage;
@@ -12,13 +12,19 @@ describe('Storage Factory', ()=>{
 		beforeEach( ()=> {
 			var store = {};
 
-		    spyOn(localStorage, 'getItem').and.callFake( (key:string):String => {
+		    spyOn(window.localStorage, 'getItem').and.callFake( (key:string):String => {
 		    	return store[key] || null;
 		    });
 
-			_localStorage = storage('local');
+		    spyOn(window.localStorage, 'setItem').and.callFake( (key:string, value: string):String => {
+		    	store[key] = value;
+		    	return store[key];
+		    });
+		     spyOn(window.localStorage, 'clear').and.callFake( () => {
+		    	store = {};
+		    });
 
-			console.log(_localStorage)
+			_localStorage = storage('local');
 		});
 		it('iiiiii', () => {
 			expect(_localStorage).toEqual(jasmine.any(BaseBrowserStorage));

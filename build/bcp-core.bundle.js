@@ -85,16 +85,18 @@ var BaseBrowserStorage = (function () {
     }
     BaseBrowserStorage.prototype.get = function (key) { return this.windowStorage.getItem(key) || undefined; };
     BaseBrowserStorage.prototype.set = function (key, value) { this.windowStorage.setItem(key, value); };
-    BaseBrowserStorage.prototype.clear = function () { this.windowStorage.destroy(); };
+    BaseBrowserStorage.prototype.clear = function () { this.windowStorage.clear(); };
+    BaseBrowserStorage.prototype.remove = function (key) { this.windowStorage.removeItem(key); };
     return BaseBrowserStorage;
 }());
 exports.BaseBrowserStorage = BaseBrowserStorage;
 var BaseMemoryStorage = (function () {
     function BaseMemoryStorage() {
     }
-    BaseMemoryStorage.prototype.get = function (key) { return this.memoryStorage[key]; };
-    BaseMemoryStorage.prototype.set = function (key, value) { return this.memoryStorage[key] = value; };
-    BaseMemoryStorage.prototype.clear = function () { return this.memoryStorage = {}; };
+    BaseMemoryStorage.prototype.get = function (key) { return this.memoryStorage.get(key); };
+    BaseMemoryStorage.prototype.set = function (key, value) { return this.memoryStorage.set(key, value); };
+    BaseMemoryStorage.prototype.clear = function () { return this.memoryStorage.clear(); };
+    BaseMemoryStorage.prototype.remove = function (key) { this.memoryStorage.delete(key); };
     return BaseMemoryStorage;
 }());
 exports.BaseMemoryStorage = BaseMemoryStorage;
@@ -122,7 +124,7 @@ var MemoryStorage = (function (_super) {
     __extends(MemoryStorage, _super);
     function MemoryStorage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.memoryStorage = {};
+        _this.memoryStorage = new Map();
         return _this;
     }
     return MemoryStorage;
@@ -162,12 +164,14 @@ function StorageFactory(type) {
             storage = new session_1.SessionStorage();
             return new browser_builder_1.BrowserStorageBuilder(storage).getStorage();
         case 'memory':
-            return new memory_1.MemoryStorage();
-        default:
-            return undefined;
+            return new memory_1.MemoryStorage;
+        default: return invalidStorageType(type);
     }
 }
 exports.StorageFactory = StorageFactory;
+function invalidStorageType(type) {
+    throw new TypeError("Unexpected storage type: " + type);
+}
 
 
 /***/ }),
@@ -179,17 +183,18 @@ exports.StorageFactory = StorageFactory;
 Object.defineProperty(exports, "__esModule", { value: true });
 var memory_1 = __webpack_require__(1);
 var BrowserStorageBuilder = (function () {
-    function BrowserStorageBuilder(windowStorage) {
-        this.windowStorage = windowStorage;
+    function BrowserStorageBuilder(storage) {
+        this.storage = storage;
     }
     BrowserStorageBuilder.prototype.getStorage = function () {
         try {
-            this.windowStorage.set('1', '1');
-            this.windowStorage.get('1');
-            this.windowStorage.clear();
-            return this.windowStorage;
+            this.storage.set('1', '1');
+            this.storage.get('1');
+            this.storage.clear();
+            return this.storage;
         }
         catch (e) {
+            console.log(e);
             return new memory_1.MemoryStorage();
         }
     };

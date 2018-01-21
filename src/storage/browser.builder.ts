@@ -4,16 +4,17 @@ import { SessionStorage } from './storages/session';
 
 export class BrowserStorageBuilder {
 
-    constructor(private windowStorage: LocalStorage | SessionStorage) {}
+    constructor(private storage: LocalStorage | SessionStorage) {}
 
     getStorage() {
         try {
-            this.windowStorage.set('1', '1');
-            this.windowStorage.get('1');
-            this.windowStorage.clear();
+            this.storage.set('1', '1');
+            this.storage.get('1');
+            this.storage.clear();
 
-            return this.windowStorage;
+            return this.storage;
         } catch (e) {
+            console.log(e);
             return new MemoryStorage();
         }
     }

@@ -1,0 +1,18 @@
+branches:
+  except:
+  - experimental
+  - legacy
+  only:
+  - master
+deploy:
+  on:
+    branch: master
+    script: 
+     - npm test
+     - npm build
+    skip_cleanup: true
+git:
+  depth: 2
+  lfs_skip_smudge: true
+language: node_js
+node_js: '7'

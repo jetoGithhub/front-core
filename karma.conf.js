@@ -27,7 +27,7 @@ module.exports = function(config) {
       reports: [ 'html', 'text' ],
       fixWebpackSourcePaths: true,
        thresholds: {
-        emitWarning: true,
+        emitWarning: false,
         skipFilesWithNoCoverage: true,
         global: {
           statements: 60,

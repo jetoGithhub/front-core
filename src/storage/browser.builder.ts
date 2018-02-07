@@ -1,10 +1,11 @@
+import { BaseBrowserStorage } from './index';
 import { MemoryStorage } from './storages/memory';
 import { LocalStorage } from './storages/local';
 import { SessionStorage } from './storages/session';
 
 export class BrowserStorageBuilder {
 
-    constructor(private storage: LocalStorage | SessionStorage) {}
+    constructor(private storage: BaseBrowserStorage) {}
 
     getStorage() {
         try {

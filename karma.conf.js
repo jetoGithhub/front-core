@@ -20,7 +20,7 @@ module.exports = function(config) {
         { pattern: "src/**/*.ts" }, // *.tsx for React Jsx
     ],
     preprocessors: {
-        "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
+        "src/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
     },
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser

@@ -12,7 +12,9 @@ module.exports = function(config) {
       require('karma-typescript'),
       require('karma-coverage-istanbul-reporter')
     ],
-    exclude: [],
+    exclude: [
+      'demo/**/'
+    ],
     files: [
         'src/**/*.spec.ts',
         { pattern: "src/**/*.ts" }, // *.tsx for React Jsx
@@ -27,7 +29,7 @@ module.exports = function(config) {
       reports: [ 'html', 'text' ],
       fixWebpackSourcePaths: true,
        thresholds: {
-        emitWarning: true,
+        emitWarning: false,
         skipFilesWithNoCoverage: true,
         global: {
           statements: 60,

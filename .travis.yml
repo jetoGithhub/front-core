@@ -17,4 +17,4 @@ git:
   depth: 2
   lfs_skip_smudge: true
 language: node_js
-node_js: '7'
+node_js: '6.11.2'

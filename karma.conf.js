@@ -12,15 +12,13 @@ module.exports = function(config) {
       require('karma-typescript'),
       require('karma-coverage-istanbul-reporter')
     ],
-    exclude: [
-      'demo/**/'
-    ],
+    exclude: [],
     files: [
         '**/**/*.spec.ts',
         { pattern: "**/**/*.ts" }, // *.tsx for React Jsx
     ],
     preprocessors: {
-        "src/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
+        "**/**/*.ts": ["karma-typescript"], // *.tsx for React Jsx
     },
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser

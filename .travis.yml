@@ -10,7 +10,6 @@ deploy:
     before_script:
      - npm install
     script: 
-     - npm test
      - npm build
     skip_cleanup: true
 git:

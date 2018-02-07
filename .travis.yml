@@ -1,0 +1,19 @@
+branches:
+  except:
+  - experimental
+  - legacy
+  only:
+  - master
+deploy:
+  on:
+    branch: master
+    before_script:
+     - npm install
+    script: 
+     - npm build
+    skip_cleanup: true
+git:
+  depth: 2
+  lfs_skip_smudge: true
+language: node_js
+node_js: '6.11.2'
